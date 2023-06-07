@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>お風呂の記録</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+    $(function () {
+        $('.js-open').click(function () {
+        $('#overlay, .modal-window').fadeIn();
+        });
+        $('.js-close, #overlay').click(function () {
+        $('#overlay, .modal-window').fadeOut();
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>お風呂の記録</h1>
+    <p>何日の何時にお風呂がくまれて、誰が入っていて、掃除済みかどうかを記録します</p>
+    <div class="container">
+        <section class="time">
+            <h2>くんだ日時</h2>
+            <a href="javascript:today()" >
+                <button class="time_btn">
+                    日時を記録する
+                </button>
+            </a>
+            <div id="now">現在時刻</div>
+        </section>
+        <section class="family">
+            <h2>入った家族</h2>
+            <a href="javascript:add()">
+                <button class="family_add_btn">
+                    名前の欄を追加
+                </button>
+            </a>
+            <table id="tbl">
+                <tr>
+                    <th>
+                        <input type="text">
+                    </th>
+                </tr>
+            </table>
+            <a href="javascript:del()">
+                <button class="family_del_btn">
+                    名前の欄を削除
+                </button>
+            </a>
+        </section>
+        <section class="clean">
+            <h2>掃除</h2>
+            <div id="overlay" class="overlay"></div>
+            <div class="modal-window">
+                <h2>お疲れさまでした！</h2>
+                <p>またよろしくお願いします。</p>
+                <button class="js-close button-close">Close</button>
+            </div>
+            <button class="js-open button-open" onclick="fin()">終わったら押す</button>
+            <div id="fin">掃除は終わっていません。</div>
+        </section>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+</html>
